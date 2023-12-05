@@ -29,6 +29,10 @@ export default defineConfig({
         "/api/currentlyplaying": {
             target: "https://wawlt-currently-playing.shrapnelnet.workers.dev",
             changeOrigin: true
+        },
+        "/api/authorize": {
+            target: "https://wawlt-authorization-flow.shrapnelnet.workers.dev",
+            changeOrigin: true
         }
     }
   }
