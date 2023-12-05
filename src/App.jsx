@@ -7,7 +7,7 @@ export default function App() {
     const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false)
     const router = useNavigate()
 
-    const environment = import.meta.env.VITE_ENVIRONMENT ?? "development"
+    const environment = "production"
 
     const navigateToRegister = () => router("/register")
     const navigateToLogin = () => router("/login")
