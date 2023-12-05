@@ -2,3 +2,9 @@ body {
     background: #1a1a1a;
     color: whitesmoke;
 }
+
+@media screen and (width < 800px) {
+    #main {
+        flex-direction: column;
+    }
+}

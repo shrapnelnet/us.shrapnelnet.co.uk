@@ -7,6 +7,8 @@ export default function Us() {
     const [tylerArtist, setTylerArtist] = useState("")
     const [tylerName, setTylerName] = useState("")
     const [tobiSrc, setTobiSrc] = useState("/sadmac.png")
+    const [tobiArtist, setTobiArtist] = useState("")
+    const [tobiName, setTobiName] = useState("")
 
     useEffect(() => {
         fetch("/api/currentlyplaying", {
@@ -19,23 +21,36 @@ export default function Us() {
                 setTylerArtist(res.artist)
                 setTylerName(res.name)
             })
+
+        fetch("/api/currentlyplaying", {
+            method: "POST",
+            body: JSON.stringify({username: "tobi"})
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                setTobiSrc(res.image)
+                setTobiArtist(res.artist)
+                setTobiName(res.name)
+            })
     }, [])
 
     return (
         <React.Fragment>
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10%" }}>
+            <Box id={"main"} sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10%" }}>
                 <Box sx={{ display: "flex", flexDirection: "column", alignContent: "center", justifyContent: "center", textAlign: "center" }}>
-                    <Typography>Tyler is listening to:</Typography>
+                    <Typography sx={{ paddingBottom: "15px" }}>Tyler is listening to:</Typography>
                     <img width={300} height={300} src={tylerSrc} alt="what tyler is listening to" />
-                    <Typography>{tylerName}</Typography>
+                    <Typography sx={{ marginTop: "20px" }}>{tylerName}</Typography>
                     <Typography>by {tylerArtist}</Typography>
                 </Box>
                 <Icon sx={{ margin: "0 50px" }}>
                     <FavoriteIcon sx={{ color: "red" }} />
                 </Icon>
                 <Box sx={{ display: "flex", flexDirection: "column", alignContent: "center", justifyContent: "center", textAlign: "center" }}>
-                    <Typography>Tobi is listening to:</Typography>
+                    <Typography sx={{ paddingBottom: "15px" }}>Tobi is listening to:</Typography>
                     <img width={300} height={300} src={tobiSrc} alt="what tobi is listening to" />
+                    <Typography sx={{ marginTop: "20px" }}>{tobiName}</Typography>
+                    <Typography>by {tobiArtist}</Typography>
                 </Box>
             </Box>
         </React.Fragment>
