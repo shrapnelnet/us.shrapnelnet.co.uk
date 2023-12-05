@@ -32,9 +32,9 @@ export default function App() {
         })
 
     const startAuthFlow = () => {
-        const scope = "user-read-currently-playing"
+        const scope = "user-read-recently-played"
         const redirect_uri = environment === "production" ? "https://us.shrapnelnet.co.uk" : "http://localhost:3000/callback"
-        const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID
+        const client_id = "dfa8c994b3814a3784a1606ec12fbd8a"
         const response_type = "code"
         const url = "https://accounts.spotify.com/authorize?"
         const params = new URLSearchParams()
