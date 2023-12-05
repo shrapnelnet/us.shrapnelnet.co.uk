@@ -32,7 +32,7 @@ export default function App() {
         })
 
     const startAuthFlow = () => {
-        const scope = "user-read-recently-played"
+        const scope = "user-read-recently-played user-read-currently-playing"
         const redirect_uri = environment === "production" ? "https://us.shrapnelnet.co.uk/callback" : "http://localhost:3000/callback"
         const client_id = "dfa8c994b3814a3784a1606ec12fbd8a"
         const response_type = "code"
